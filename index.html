@@ -1,23 +1,25 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>明乐</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <!--mui css-->
-    <link rel="stylesheet" href="/plugin/mui/css/mui.min.css">
+    <link rel="stylesheet" href="https://www.cliwen.com/plugin/mui/css/mui.min.css">
     <!--主 css-->
-    <link rel="stylesheet" href="/mobile/index.css" />
-    <link rel="stylesheet" type="text/css" href="/plugin/sky/sky.css" />
-    <script src="/plugin/define.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.cliwen.com/plugin/sky/sky.css" />
+    <script src="https://www.cliwen.com/plugin/define.js"></script>
     <!--mui js-->
-    <script src="/plugin/mui/js/mui.min.js"></script>
+    <script src="https://www.cliwen.com/plugin/mui/js/mui.min.js"></script>
     <!--vue js-->
-    <script src="/plugin/vue/vue.min.js"></script>
+    <script src="https://www.cliwen.com/plugin/vue/vue.min.js"></script>
 </head>
+
 <body>
     <div id="app">
         <header id="header" class="mui-bar mui-bar-nav">
@@ -31,25 +33,25 @@
                     <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
                     <div class="mui-slider-item mui-slider-item-duplicate">
                         <a href="#">
-                            <img src="/help/images/m/01.jpg">
+                            <img src="https://www.cliwen.com/help/images/m/01.jpg">
                         </a>
                     </div>
                     <!-- 第一张 -->
                     <div class="mui-slider-item">
                         <a href="#">
-                            <img src="/help/images/m/02.jpg">
+                            <img src="https://www.cliwen.com/help/images/m/02.jpg">
                         </a>
                     </div>
                     <!-- 第二张 -->
                     <div class="mui-slider-item">
                         <a href="#">
-                            <img src="/help/images/m/01.jpg">
+                            <img src="https://www.cliwen.com/help/images/m/01.jpg">
                         </a>
                     </div>
                     <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
                     <div class="mui-slider-item mui-slider-item-duplicate">
                         <a href="#">
-                            <img src="/help/images/m/02.jpg">
+                            <img src="https://www.cliwen.com/help/images/m/02.jpg">
                         </a>
                     </div>
                 </div>
@@ -77,19 +79,19 @@
                     <div class="mui-card-content-inner">
                         <ul>
                             <li @tap.stop="tz2(1)">
-                                <img src="/help/images/noimg.jpg">
+                                <img src="https://www.cliwen.com/help/images/noimg.jpg">
                                 <p>登录</p>
                             </li>
                             <li @tap.stop="tz2(2)">
-                                <img src="/plugin/sky/104.svg">
+                                <img src="https://www.cliwen.com/plugin/sky/104.svg">
                                 <p>天气</p>
                             </li>
                             <li @tap.stop="tz2(3)">
-                                <img src="/help/images/noimg.jpg">
+                                <img src="https://www.cliwen.com/help/images/noimg.jpg">
                                 <p>刷新</p>
                             </li>
                             <li @tap.stop="tz2(99)">
-                                <img src="/help/images/add.png">
+                                <img src="https://www.cliwen.com/help/images/add.png">
                                 <p>添加菜单</p>
                             </li>
                         </ul>
@@ -155,10 +157,12 @@
             <div style="margin: 30% 10%;padding: 10px;background-color: #fff;border-radius: 8px;">
                 <b style="margin-left: 15px">添加菜单</b>
                 <hr style="margin-left: 15px">
-                <form class="mui-input-group" action="{php echo $this->createMobileUrl('business', array('op' => 'register'));}" method="post">
+                <form class="mui-input-group"
+                    action="{php echo $this->createMobileUrl('business', array('op' => 'register'));}" method="post">
                     <div class="mui-input-row">
                         <label for="shopname">名称</label>
-                        <input class="mui-input-clear" type="text" v-model="addmenu.title" name="title" required="required">
+                        <input class="mui-input-clear" type="text" v-model="addmenu.title" name="title"
+                            required="required">
                     </div>
                     <div class="mui-input-row">
                         <label for="address">地址</label>
@@ -168,19 +172,22 @@
                     <div class="mui-input-row">
                         <div class="mui-row">
                             <div class="col-sm-12">
-                                <button type="submit" class="mui-btn mui-btn-success mui-btn-outlined" style="width: 100%" @tap.stop="saveaddmenu()">提交</button>
+                                <button type="submit" class="mui-btn mui-btn-success mui-btn-outlined"
+                                    style="width: 100%" @tap.stop="saveaddmenu()">提交</button>
                             </div>
                         </div>
                     </div>
                 </form>
                 <br>
                 <div class="col-sm-12">
-                    <button type="button" class="mui-btn cancel-mask" style="width: 100%" @tap.stop="closeaddmenu()">取消</button>
+                    <button type="button" class="mui-btn cancel-mask" style="width: 100%"
+                        @tap.stop="closeaddmenu()">取消</button>
                 </div>
             </div>
         </div>
     </div>
     <!--主 js-->
-    <script src="/mobile/index.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>

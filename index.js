@@ -104,7 +104,7 @@ new Vue({
         //获取菜单数据
         getmenu: function () {
             var that = this;
-            that.menuapi = "/api/sysdata/mlmenulistbymobile.php";
+            that.menuapi = "https://www.cliwen.com/api/sysdata/mlmenulistbymobile.php";
             that.ajax(true, that.menuapi, null, function (data) {
                 if (data.code == 0) {
                     that.menulist = data.data;
@@ -114,7 +114,7 @@ new Vue({
         //随机显示一言
         getyiyan: function () {
             var that = this;
-            that.yanapi = "/api/yan/?encode=json";
+            that.yanapi = "https://www.cliwen.com/api/yan/?encode=json";
             that.ajax(true, that.yanapi, null, function (data) {
                 if (data.code == 0) {
                     that.yanstring = data.data;
@@ -243,8 +243,8 @@ new Vue({
                 that.addmenu.show = 1;
                 that.addmenu.click = 0;
                 that.addmenu.ismobile = 1;
-                that.addmenu.logo = "/help/images/useradd.jpg";
-                that.ajax(false, "/api/sysdata/mlmenuadd.php", that.addmenu, function (data) {
+                that.addmenu.logo = "https://www.cliwen.com/help/images/useradd.jpg";
+                that.ajax(false, "https://www.cliwen.com/api/sysdata/mlmenuadd.php", that.addmenu, function (data) {
                     that.getmenu();
                 })
             }
