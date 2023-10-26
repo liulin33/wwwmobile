@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>通用页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="stylesheet" type="text/css" href="/plugin/mui/css/mui.min.css">
+    <style>
+        html,
+        body,
+        #parentpage {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parentpage">
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-icon mui-action-back mui-icon-left-nav mui-pull-left">关闭</a>
+            <h1 class="mui-title">{{title}}</h1>
+        </header>
+        <div v-show="isshow" class="mui-content">
+            <h1>暂无数据</h1>
+        </div>
+        <nav class="mui-bar mui-bar-tab" v-show="isShowR" style="z-index:999">
+            <a class="mui-icon" @tap.sotp="go(-1)" style="margin: 0px !important;bottom: 0;position: absolute;left: 70px;">后退</a>
+            <a class="mui-icon" @tap.sotp="go(1)" style="margin: 0px !important;bottom: 0;position: absolute;right: 70px;">前进</a>
+        </nav>
+    </div>
+
+
+    <script src="/plugin/mui/js/mui.min.js"></script>
+    <script src="/plugin/vue/vue.min.js"></script>
+    <!--<script src="/plugin/zu/vconsole.min.js"></script>-->
+    <script>
+        var parentpage = new Vue({
+            el: "#parentpage",
+            data: function () {
+                return {
+                    param: {},
+                    title: "",
+                    isshow: true,
+                    isShowR: false,
+                }
+            },
+            mounted: function () {
+                var that = this;
+                //这清除一定要在页头,如果是新进入的页面就清除上次传存储的值
+                if (window.name === '') {
+                    localStorage.removeItem("mingle.pagetransdata_b");
+                    window.name = 'isReload';
+                }
+                //判断如果A页面有存储，那就取出来过渡到B页面来
+                let a = localStorage.getItem('mingle.pagetransdata_a');
+                if (a) {
+                    localStorage.setItem('mingle.pagetransdata_b', a);
+                }
+                that.param = JSON.parse(localStorage.getItem("mingle.pagetransdata_b"));
+                that.init();
+            },
+            methods: {
+                init: function () {
+                    var that = this;
+                    that.isShowR = false;
+                    var bottom = "0px";
+                    if (that.param.openitem) {
+                        var url = "";
+                        if (!that.param.openitem.ip) {
+                            url = that.param.openitem.url;
+                            //that.isShowR = true;
+                            //bottom = "45px";
+                        } else {
+                            url = that.param.openitem.ip + that.param.openitem.url;
+                        }
+                        // 创建子页面
+                        mui.init({
+                            subpages: [{
+                                url: url,
+                                id: 'z_' + that.param.openitem.id,
+                                styles: {
+                                    top: '45px', //mui标题栏默认高度为45px；
+                                    bottom: bottom, //默认为0px，可不定义；
+                                    maxWidth: '560px'
+                                }
+                            }]
+                        });
+                        that.title = that.param.openitem.title;
+                        that.isshow = false;
+                    } else {
+                        mui.init();
+                        that.title = "通用页面";
+                        that.isshow = true;
+                    }
+                },
+                go: function (item) {
+                    console.log(item);
+                    history.go(item);
+                }
+            },
+        });
+        window.parentpage = parentpage;
+        //var vConsole = new VConsole();
+    </script>
+</body>
+</html>

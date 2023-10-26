@@ -1,0 +1,101 @@
+﻿* {
+	margin: 0;
+	padding: 0
+}
+html, body {
+    background-color: #efeff4;
+}
+
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	outline: 0px;
+	color: #333
+}
+
+img {
+	border: 0;
+	max-width: 100%;
+}
+
+body {
+	width: 100%;
+	max-width: 512px;
+	margin: 0 auto;
+	background: #fff;
+	font-size: 12px;
+	line-height: 24px;
+	color: #333;
+}
+
+.clear {
+	clear: both;
+}
+
+.allbox {
+	background: #F1F1F1;
+	width: 100%;
+	height: 10px
+}
+
+.typebox {
+	overflow: hidden;
+	background: #fff;
+}
+
+
+.typebox ul {
+	overflow: hidden;
+	padding: 10px 0;
+	margin: 0;
+
+}
+
+.typebox ul li ,
+.mui-card-content-inner ul li {
+	float: left;
+	/* width: 25%; */
+	margin-right: 10px;
+}
+
+.typebox ul li img,
+.mui-card-content-inner ul li img {
+	display: block;
+	margin: 0 auto;
+	height: 50px;
+}
+
+.typebox ul li p,
+.mui-card-content-inner ul li p {
+	text-align: center;
+	line-height: 24px;
+	font-size: 12px;
+	letter-spacing: 1px
+}
+
+
+.mui-bar .mui-pull-left .mui-icon {
+    padding-right: 5px;
+    font-size: 28px;
+}
+
+.mui-bar .mui-btn {
+    font-weight: normal;
+    font-size: 17px;
+}
+
+.mui-bar .mui-btn-link {
+    top: 1px;
+}
+
+.mui-slider img {
+    height: 220px;
+}
